@@ -54,6 +54,15 @@ sharing a domain package.
   > which never exists on Windows. `winget` installs the real MSI and avoids the problem entirely.
   > If you already hit this, run `npm uninstall -g azure-functions-core-tools` first so the broken
   > shim does not shadow the working install.
+  >
+  > After the winget install, `func` may still not be found: the MSI does not always add itself to
+  > `PATH`. If `func --version` fails, add the install directory once:
+  >
+  > ```powershell
+  > [Environment]::SetEnvironmentVariable('Path', ([Environment]::GetEnvironmentVariable('Path','User').TrimEnd(';') + ';C:\Program Files\Microsoft\Azure Functions Core Tools'), 'User')
+  > ```
+  >
+  > then restart the terminal (and your editor, which caches the environment at launch).
 
 ### Install
 
