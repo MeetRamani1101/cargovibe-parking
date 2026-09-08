@@ -27,11 +27,33 @@ sharing a domain package.
 ### Prerequisites
 
 - **Node.js 20+** (developed on 24)
-- **Azure Functions Core Tools v4**, needed only to run the API locally:
+- **Azure Functions Core Tools v4** — needed only to run the API locally, not to build or test it.
+
+  **Windows** (recommended — see the note below):
+
+  ```bash
+  winget install Microsoft.Azure.FunctionsCoreTools
+  ```
+
+  **macOS:**
+
+  ```bash
+  brew tap azure/functions && brew install azure-functions-core-tools@4
+  ```
+
+  **Linux / any platform:**
 
   ```bash
   npm install -g azure-functions-core-tools@4 --unsafe-perm true
   ```
+
+  > **Avoid the npm package on Windows.** It does not ship the binary; it lazily downloads a
+  > ~590 MB archive on first run and then extracts it. That extraction failed repeatedly during
+  > development, leaving only a partial `.zip` and producing
+  > `Error: spawn ...\azure-functions-core-tools\bin/func ENOENT` — note the extensionless `func`,
+  > which never exists on Windows. `winget` installs the real MSI and avoids the problem entirely.
+  > If you already hit this, run `npm uninstall -g azure-functions-core-tools` first so the broken
+  > shim does not shadow the working install.
 
 ### Install
 
