@@ -1,0 +1,24 @@
+{
+  "name": "cargovibe-parking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Truck parking request management - Azure Functions API + Expo mobile app",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:shared": "npm run build --workspace @cargovibe/shared",
+    "build": "npm run build:shared && npm run build --workspace @cargovibe/api",
+    "api": "npm run start --workspace @cargovibe/api",
+    "api:lan": "npm run start:lan --workspace @cargovibe/api",
+    "mobile": "npm run start --workspace @cargovibe/mobile",
+    "mobile:web": "npm run web --workspace @cargovibe/mobile",
+    "test": "npm run test --workspace @cargovibe/shared && npm run test --workspace @cargovibe/api",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "clean": "node -e \"const{rmSync}=require('fs');['packages/shared/dist','apps/api/dist'].forEach(p=>rmSync(p,{recursive:true,force:true}))\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

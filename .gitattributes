@@ -1,0 +1,15 @@
+# Normalise line endings so the repo is identical on Windows, macOS and Linux.
+# Without this, files committed from Windows carry CRLF and produce noisy diffs
+# (and can break shell scripts) when checked out elsewhere.
+* text=auto eol=lf
+
+# Binary assets must never be normalised.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary

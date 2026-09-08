@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.expo/
+web-build/
+*.log
+.DS_Store
+local.settings.json
+# Committed on purpose: it holds no secrets and the reviewer needs it to run `func start`.
+!apps/api/local.settings.json
+.env
+.env.local
+coverage/

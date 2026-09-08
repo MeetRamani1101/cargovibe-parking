@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "",
+    "SEED_SAMPLE_DATA": "true"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "",
+    "CORSCredentials": false
+  }
+}
